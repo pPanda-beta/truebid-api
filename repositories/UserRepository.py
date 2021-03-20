@@ -1,13 +1,10 @@
+from constants.Users import *
 from models.User import User
 from models.UserRating import UserRating
 
 
 class UserRepository:
     def __init__(self):
-        user_1_id = "User_1"
-        user_2_id = "User_2"
-        user_3_id = "User_3"
-
         self.users = {
             user_1_id: User(user_1_id, "Ritabrata Moitra", [
                 UserRating("rating_id_1", user_1_id, 4),
