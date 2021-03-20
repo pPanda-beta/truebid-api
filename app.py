@@ -8,6 +8,7 @@ from dependencies import configure
 from repositories.DomainRepository import DomainRepository
 from repositories.ListingRepository import ListingRepository
 from repositories.SkuRepository import SkuRepository
+from repositories.UserRepository import UserRepository
 
 app = Flask(__name__)
 
@@ -34,6 +35,12 @@ def get_all_sku(skuRepository: SkuRepository, sku_id):
 @app.route('/api/listing', methods=['GET'])
 def get_all_listings(listingRepository: ListingRepository):
     return json.dumps(listingRepository.get_all_listings(), default=vars)
+
+
+@inject
+@app.route('/api/user/<user_id>', methods=['GET'])
+def get_user(userRepository: UserRepository, user_id):
+    return json.dumps(userRepository.get_user(user_id), default=vars)
 
 
 FlaskInjector(app=app, modules=[configure])
