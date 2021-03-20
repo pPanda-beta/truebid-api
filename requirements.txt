@@ -1,0 +1,3 @@
+flask~=1.1.2
+injector~=0.18.4
+flask-injector
