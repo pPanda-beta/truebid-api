@@ -99,12 +99,12 @@
 			"response": []
 		},
 		{
-			"name": "Get User details",
+			"name": "Get listing by Id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user/User_1",
+					"raw": "http://127.0.0.1:5000/api/listing/listing_1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -115,15 +115,15 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"user",
-						"User_1"
+						"listing",
+						"listing_1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Listing for Creator",
+			"name": "Get listings for creator",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -175,6 +175,30 @@
 							"key": "bidder_id",
 							"value": "User_3"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/User_1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"User_1"
 					]
 				}
 			},

@@ -20,6 +20,9 @@ class ListingRepository:
     def get_all_listings(self):
         return self.listings
 
+    def get_listing_by_id(self, listing_id):
+        return self.listings.get(listing_id)
+
     def get_listing_by_creator(self, creator_id):
         return dict(filter(lambda listing: listing[1].creator_id == creator_id, self.listings.items()))
 

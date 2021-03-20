@@ -45,6 +45,12 @@ def get_all_listings(listingRepository: ListingRepository):
 
 
 @inject
+@app.route('/api/listing/<listing_id>', methods=['GET'])
+def get_listing_by_id(listingRepository: ListingRepository, listing_id):
+    return json.dumps(listingRepository.get_listing_by_id(listing_id), default=vars)
+
+
+@inject
 @app.route('/api/user/<user_id>', methods=['GET'])
 def get_user(userRepository: UserRepository, user_id):
     return json.dumps(userRepository.get_user(user_id), default=vars)
