@@ -121,6 +121,64 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Listing for Creator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/listing?creator_id=User_3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"listing"
+					],
+					"query": [
+						{
+							"key": "creator_id",
+							"value": "User_3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get listings by bidder id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/listing?bidder_id=User_3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"listing"
+					],
+					"query": [
+						{
+							"key": "bidder_id",
+							"value": "User_3"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
