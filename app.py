@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask
+from flask import Flask, request
 from flask_injector import FlaskInjector
 from injector import inject
 
@@ -34,7 +34,14 @@ def get_all_sku(skuRepository: SkuRepository, sku_id):
 @inject
 @app.route('/api/listing', methods=['GET'])
 def get_all_listings(listingRepository: ListingRepository):
-    return json.dumps(listingRepository.get_all_listings(), default=vars)
+    if 'creator_id' in request.args.keys():
+        creator_id = request.args.get('creator_id')
+        return json.dumps(listingRepository.get_listing_by_creator(creator_id), default=vars)
+    elif 'bidder_id' in request.args.keys():
+        bidder_id = request.args.get('bidder_id')
+        return json.dumps(listingRepository.get_listing_by_bidder(bidder_id), default=vars)
+    else:
+        return json.dumps(listingRepository.get_all_listings(), default=vars)
 
 
 @inject
