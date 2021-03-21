@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e8ab8c94-ec4f-41c9-b529-9c51015f42f5",
+		"_postman_id": "63c71a08-5cc1-4326-86e8-0d98d1f62495",
 		"name": "Uber Hacktag",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -186,7 +186,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user/User_1",
+					"raw": "http://127.0.0.1:5000/api/user/149af5ba-8a65-11eb-bbdb-3e22fb1ddc36",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -198,7 +198,136 @@
 					"path": [
 						"api",
 						"user",
-						"User_1"
+						"149af5ba-8a65-11eb-bbdb-3e22fb1ddc36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Listing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"created_time\": 1616259600000,\n    \"creator_id\": \"User_3\",\n    \"expiration_time\": 1616346000000,\n    \"max_price\": 1400,\n    \"min_price\": 1000,\n    \"sku_id\": \"sku_haircut\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/listing",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"listing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create bid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"listing_id\": \"listing_1\",\n    \"timestamp\": 1616281200000,\n    \"user_id\": \"User_2\",\n    \"bid_amount\": 120\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/bid",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"bid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Avishikta Mukherjee\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"User_1\",\n    \"domain_id\": \"domain_groceries\",\n    \"rating\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/rating",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"rating"
 					]
 				}
 			},
