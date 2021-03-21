@@ -10,3 +10,4 @@ class Listing:
         self.created_time = created_time
         self.expiration_time = expiration_time
         self.bids = bids
+        self.accepted_bid = None
