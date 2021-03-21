@@ -21,3 +21,10 @@ class UserRepository:
 
     def add_user(self, new_user: User):
         self.users[new_user.user_id] = new_user
+
+    def add_rating(self, new_rating: UserRating):
+        user_for_rating: User = list(
+            filter(lambda user: user[1].user_id == new_rating.user_id, self.users.items())
+        )[0][1]
+
+        user_for_rating.ratings.append(new_rating)

@@ -9,6 +9,7 @@ from dependencies import configure
 from models.Bid import Bid
 from models.Listing import Listing
 from models.User import User
+from models.UserRating import UserRating
 from repositories.DomainRepository import DomainRepository
 from repositories.ListingRepository import ListingRepository
 from repositories.SkuRepository import SkuRepository
@@ -118,6 +119,22 @@ def create_bid(listingRepository: ListingRepository):
     )
     listingRepository.add_bid(new_bid)
     return jsonify({new_bid.bid_id: new_bid})
+
+
+@inject
+@app.route('/api/user/rating', methods=['POST'])
+def create_rating(userRepository: UserRepository):
+    abort_if_body_not_found()
+
+    body = request.json
+    new_rating = UserRating(
+        str(uuid.uuid1()),
+        body['user_id'],
+        body['domain_id'],
+        body['rating']
+    )
+    userRepository.add_rating(new_rating)
+    return jsonify({new_rating.rating_id: new_rating})
 
 
 def abort_if_body_not_found():
