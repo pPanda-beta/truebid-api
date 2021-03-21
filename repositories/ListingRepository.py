@@ -32,3 +32,6 @@ class ListingRepository:
                    [d for d in listing[1].bids if bidder_id == d.user_id],
                    self.listings.items())
         )
+
+    def add_listing(self, new_listing: Listing):
+        self.listings[new_listing.listing_id] = new_listing

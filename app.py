@@ -1,9 +1,12 @@
-from flask import Flask, request, jsonify
+import uuid
+
+from flask import Flask, request, jsonify, abort
 from flask.json import JSONEncoder
 from flask_injector import FlaskInjector
 from injector import inject
 
 from dependencies import configure
+from models.Listing import Listing
 from repositories.DomainRepository import DomainRepository
 from repositories.ListingRepository import ListingRepository
 from repositories.SkuRepository import SkuRepository
@@ -48,6 +51,28 @@ def get_all_listings(listingRepository: ListingRepository):
         return jsonify(listingRepository.get_listing_by_bidder(bidder_id))
     else:
         return jsonify(listingRepository.get_all_listings())
+
+
+@inject
+@app.route('/api/listing', methods=['POST'])
+def create_listing(listingRepository: ListingRepository):
+    if not request.json:
+        abort(400)
+
+    body = request.json
+    new_listing = Listing(
+        str(uuid.uuid1()),
+        "open",
+        body['creator_id'],
+        body['sku_id'],
+        body['min_price'],
+        body['max_price'],
+        body['created_time'],
+        body['expiration_time'],
+        bids=[]
+    )
+    listingRepository.add_listing(new_listing)
+    return jsonify({new_listing.listing_id: new_listing})
 
 
 @inject
