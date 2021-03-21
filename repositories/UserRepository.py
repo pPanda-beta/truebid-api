@@ -18,3 +18,6 @@ class UserRepository:
 
     def get_user(self, user_id):
         return self.users.get(user_id)
+
+    def add_user(self, new_user: User):
+        self.users[new_user.user_id] = new_user

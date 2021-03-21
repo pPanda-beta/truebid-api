@@ -8,6 +8,7 @@ from injector import inject
 from dependencies import configure
 from models.Bid import Bid
 from models.Listing import Listing
+from models.User import User
 from repositories.DomainRepository import DomainRepository
 from repositories.ListingRepository import ListingRepository
 from repositories.SkuRepository import SkuRepository
@@ -85,6 +86,21 @@ def get_listing_by_id(listingRepository: ListingRepository, listing_id):
 @app.route('/api/user/<user_id>', methods=['GET'])
 def get_user(userRepository: UserRepository, user_id):
     return jsonify(userRepository.get_user(user_id))
+
+
+@inject
+@app.route('/api/user', methods=['POST'])
+def create_user(userRepository: UserRepository):
+    abort_if_body_not_found()
+
+    body = request.json
+    new_user = User(
+        str(uuid.uuid1()),
+        body['name'],
+        ratings=[]
+    )
+    userRepository.add_user(new_user)
+    return jsonify({new_user.user_id: new_user})
 
 
 @inject
