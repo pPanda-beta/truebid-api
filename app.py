@@ -6,6 +6,7 @@ from flask_injector import FlaskInjector
 from injector import inject
 
 from dependencies import configure
+from models.Bid import Bid
 from models.Listing import Listing
 from repositories.DomainRepository import DomainRepository
 from repositories.ListingRepository import ListingRepository
@@ -56,8 +57,7 @@ def get_all_listings(listingRepository: ListingRepository):
 @inject
 @app.route('/api/listing', methods=['POST'])
 def create_listing(listingRepository: ListingRepository):
-    if not request.json:
-        abort(400)
+    abort_if_body_not_found()
 
     body = request.json
     new_listing = Listing(
@@ -85,6 +85,28 @@ def get_listing_by_id(listingRepository: ListingRepository, listing_id):
 @app.route('/api/user/<user_id>', methods=['GET'])
 def get_user(userRepository: UserRepository, user_id):
     return jsonify(userRepository.get_user(user_id))
+
+
+@inject
+@app.route('/api/bid', methods=['POST'])
+def create_bid(listingRepository: ListingRepository):
+    abort_if_body_not_found()
+
+    body = request.json
+    new_bid = Bid(
+        str(uuid.uuid1()),
+        body['listing_id'],
+        body['user_id'],
+        body['bid_amount'],
+        body['timestamp']
+    )
+    listingRepository.add_bid(new_bid)
+    return jsonify({new_bid.bid_id: new_bid})
+
+
+def abort_if_body_not_found():
+    if not request.json:
+        abort(400)
 
 
 FlaskInjector(app=app, modules=[configure])

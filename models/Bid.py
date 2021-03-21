@@ -3,5 +3,5 @@ class Bid:
         self.bid_id = bid_id
         self.listing_id = listing_id
         self.user_id = user_id
-        self.bid_id = bid_amount
+        self.bid_amount = bid_amount
         self.timestamp = timestamp
