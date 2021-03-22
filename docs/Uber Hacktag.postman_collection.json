@@ -186,7 +186,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user/149af5ba-8a65-11eb-bbdb-3e22fb1ddc36",
+					"raw": "http://127.0.0.1:5000/api/user/new_user_1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -198,7 +198,7 @@
 					"path": [
 						"api",
 						"user",
-						"149af5ba-8a65-11eb-bbdb-3e22fb1ddc36"
+						"new_user_1"
 					]
 				}
 			},
@@ -275,7 +275,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Avishikta Mukherjee\"\n}",
+					"raw": "{\n    \"user_id\": \"new_user_1\",\n    \"name\": \"Avishikta Mukherjee\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

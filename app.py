@@ -96,7 +96,7 @@ def create_user(userRepository: UserRepository):
 
     body = request.json
     new_user = User(
-        str(uuid.uuid1()),
+        body['user_id'],
         body['name'],
         ratings=[]
     )
