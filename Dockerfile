@@ -12,6 +12,7 @@ RUN pip3 install gunicorn~=20.1.0
 
 ADD ./ /app
 
-#CMD flask run -h 0.0.0.0 -p ${PORT:-5000}
+CMD flask run -h 0.0.0.0 -p ${PORT:-5000}
 
-CMD gunicorn 'app:app' -w 10 -b "0.0.0.0:${PORT:-5000}" --access-logfile -
+# TODO: Inmemory database, horizontal scaling not possible
+# CMD gunicorn 'app:app' -w 1 -b "0.0.0.0:${PORT:-5000}" --access-logfile -
