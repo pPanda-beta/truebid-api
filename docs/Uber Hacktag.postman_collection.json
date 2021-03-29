@@ -186,7 +186,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user/new_user_1",
+					"raw": "http://127.0.0.1:5000/api/user/rito_1708",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -198,7 +198,7 @@
 					"path": [
 						"api",
 						"user",
-						"new_user_1"
+						"rito_1708"
 					]
 				}
 			},
@@ -211,7 +211,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"created_time\": 1616259600000,\n    \"creator_id\": \"User_3\",\n    \"expiration_time\": 1616346000000,\n    \"max_price\": 1400,\n    \"min_price\": 1000,\n    \"sku_id\": \"sku_haircut\"\n}",
+					"raw": "{\n    \"created_time\": 1616259600000,\n    \"creator_id\": \"User_3\",\n    \"expiration_time\": 1616346000000,\n    \"max_price\": 1400,\n    \"min_price\": 1000,\n    \"sku_id\": \"sku_haircut\",\n    \"sku\": {\n        \"description\": \"Professional Haircut by Habib's stylist\",\n        \"domain_id\": \"domain_classifieds\",\n        \"name\": \"Haircut\",\n        \"sku_id\": \"sku_haircut\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"

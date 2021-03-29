@@ -9,11 +9,10 @@ class ListingRepository:
         listing_id_1 = "listing_1"
         listing_id_2 = "listing_2"
         self.listings = {
-            listing_id_1: Listing(listing_id_1, "open", user_1_id, SKU_MILK_ID, 100, 200, 1616259600000, 1616346000000,
-                                  [Bid("bid_id_1", listing_id_1, user_2_id, 110, 1616281200000),
-                                   Bid("bid_id_2", listing_id_1, user_3_id, 120, 1616299200000)]
-                                  ),
-            listing_id_2: Listing(listing_id_2, "open", user_3_id, SKU_HAIRCUT_ID, 500, 900, 1616259600000,
+            listing_id_1: Listing(listing_id_1, "open", user_1_id, SKU_MILK_ID, SKU_MILK, 100, 200, 1616259600000,
+                                  1616346000000, [Bid("bid_id_1", listing_id_1, user_2_id, 110, 1616281200000),
+                                                  Bid("bid_id_2", listing_id_1, user_3_id, 120, 1616299200000)]),
+            listing_id_2: Listing(listing_id_2, "open", user_3_id, SKU_HAIRCUT_ID, SKU_HAIRCUT, 500, 900, 1616259600000,
                                   1616346000000, [])
         }
 

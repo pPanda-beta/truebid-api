@@ -62,17 +62,8 @@ def create_listing(listingRepository: ListingRepository):
     abort_if_body_not_found()
 
     body = request.json
-    new_listing = Listing(
-        str(uuid.uuid1()),
-        "open",
-        body['creator_id'],
-        body['sku_id'],
-        body['min_price'],
-        body['max_price'],
-        body['created_time'],
-        body['expiration_time'],
-        bids=[]
-    )
+    new_listing = Listing(str(uuid.uuid1()), "open", body['creator_id'], body['sku_id'], body['sku'], body['min_price'],
+                          body['max_price'], body['created_time'], body['expiration_time'], bids=[])
     listingRepository.add_listing(new_listing)
     return jsonify({new_listing.listing_id: new_listing})
 
