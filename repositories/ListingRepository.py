@@ -36,6 +36,14 @@ class ListingRepository:
     def add_listing(self, new_listing: Listing):
         self.listings[new_listing.listing_id] = new_listing
 
+    def edit_listing(self, listing_id, request_body):
+        listing: Listing = list(
+            filter(lambda listing: listing[1].listing_id == listing_id, self.listings.items())
+        )[0][1]
+
+        for k, v in request_body.items():
+            setattr(listing, k, v)
+
     def add_bid(self, new_bid: Bid):
         listing: Listing = list(
             filter(lambda listing: listing[1].listing_id == new_bid.listing_id, self.listings.items())

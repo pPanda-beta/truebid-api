@@ -78,6 +78,16 @@ def create_listing(listingRepository: ListingRepository):
 
 
 @inject
+@app.route('/api/listing/<listing_id>', methods=['PUT'])
+def edit_listing(listingRepository: ListingRepository, listing_id):
+    abort_if_body_not_found()
+
+    body = request.json
+    listingRepository.edit_listing(listing_id, body)
+    return jsonify({listing_id: listing_id})
+
+
+@inject
 @app.route('/api/listing/<listing_id>', methods=['GET'])
 def get_listing_by_id(listingRepository: ListingRepository, listing_id):
     return jsonify(listingRepository.get_listing_by_id(listing_id))
