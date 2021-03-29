@@ -50,3 +50,13 @@ class ListingRepository:
         )[0][1]
 
         listing.bids.append(new_bid)
+
+    def edit_bid(self, listing_id, bid_id, request_body):
+        listing: Listing = list(
+            filter(lambda listing: listing[1].listing_id == listing_id, self.listings.items())
+        )[0][1]
+
+        bid: Bid = next(filter(lambda bid: bid.bid_id == bid_id, listing.bids))
+
+        for k, v in request_body.items():
+            setattr(bid, k, v)

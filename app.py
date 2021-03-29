@@ -132,6 +132,16 @@ def create_bid(listingRepository: ListingRepository):
 
 
 @inject
+@app.route('/api/listing/<listing_id>/bid/<bid_id>', methods=['PUT'])
+def add_bid(listingRepository: ListingRepository, listing_id, bid_id):
+    abort_if_body_not_found()
+
+    body = request.json
+    listingRepository.edit_bid(listing_id, bid_id, body)
+    return jsonify({listing_id: listing_id, bid_id: bid_id})
+
+
+@inject
 @app.route('/api/user/rating', methods=['POST'])
 def create_rating(userRepository: UserRepository):
     abort_if_body_not_found()
