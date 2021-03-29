@@ -13,7 +13,10 @@ class UserRepository:
                 UserRating("rating_id_1", user_1_id, CLASSIFIEDS_DOMAIN, 4)
             ]),
             user_2_id: User(user_2_id, "Palash Das", []),
-            user_3_id: User(user_3_id, "Sabyasachi Nandy", [])
+            user_3_id: User(user_3_id, "Sabyasachi Nandy", []),
+            rito_user_id: User(rito_user_id, "Rito", []),
+            neel_user_id: User(neel_user_id, "Neel Nandy", []),
+            polu_user_id: User(polu_user_id, "Palash Das", [])
         }
 
     def get_user(self, user_id):

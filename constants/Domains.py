@@ -6,3 +6,6 @@ SERVICES = 'services'
 
 CLASSIFIEDS_DOMAIN = 'domain_classifieds'
 CLASSIFIEDS = 'classifieds'
+
+TRAVEL_DOMAIN = 'domain_travel'
+B2B_FLIGHTS = 'b2b_flights'
