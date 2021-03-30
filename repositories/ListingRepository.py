@@ -10,11 +10,11 @@ class ListingRepository:
         self.listings = {
             listing_id_1: Listing(listing_id_1, "open", user_1_id, SKU_ACCOMMODATION_ID, SKU_ACCOMMODATION, 30000,
                                   40000,
-                                  1616259600000,
-                                  1616346000000,
+                                  1619715600000,
+                                  1619820000000,
                                   [
-                                      Bid("bid_id_1", listing_id_1, user_2_id, 31000, 1616281200000),
-                                      Bid("bid_id_2", listing_id_1, user_3_id, 32000, 1616299200000)
+                                      Bid("bid_id_1", listing_id_1, user_2_id, 31000, 1619794800000),
+                                      Bid("bid_id_2", listing_id_1, user_3_id, 32000, 1619791200000)
                                   ])
         }
 
