@@ -43,6 +43,12 @@ class ListingRepository:
         )[0][1]
 
         for k, v in request_body.items():
+            if k == 'bids':
+                v = [Bid(**d) for d in v]
+            if k == 'sku':
+                v = Sku(**v)
+            if k == 'accepted_bid':
+                v = v and Bid(**v)
             setattr(listing, k, v)
 
     def add_bid(self, new_bid: Bid):
