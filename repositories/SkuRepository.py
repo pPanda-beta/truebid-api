@@ -4,9 +4,8 @@ from constants.Skus import *
 class SkuRepository:
     def __init__(self):
         self.skuList = {
-            SKU_MILK_ID: SKU_MILK,
-            SKU_HAIRCUT_ID: SKU_HAIRCUT,
-            SKU_FLIGHT_ID: SKU_FLIGHT
+            SKU_FLIGHT_ID: SKU_FLIGHT,
+            SKU_ACCOMMODATION_ID: SKU_ACCOMMODATION
         }
 
     def get_all_sku(self):

@@ -15,3 +15,8 @@ SKU_FLIGHT_NAME = 'Business Class Flight Seat B2B'
 SKU_FLIGHT_ID = 'Business Class Flight Seat B2B'
 SKU_FLIGHT_DESCRIPTION = 'Boeing 737 flight from New Delhi to Brussels. Accepting B2B bids for business class seats.'
 SKU_FLIGHT = Sku(SKU_FLIGHT_ID, SKU_FLIGHT_NAME, TRAVEL_DOMAIN, SKU_FLIGHT_DESCRIPTION)
+
+SKU_ACCOMMODATION_NAME = 'Residential Bunglow Booking'
+SKU_ACCOMMODATION_ID = 'Residential Bunglow Booking'
+SKU_ACCOMMODATION_DESCRIPTION = 'Book 3BHK sea-facing bunglow Bunglow '
+SKU_ACCOMMODATION = Sku(SKU_ACCOMMODATION_ID, SKU_ACCOMMODATION_NAME, TRAVEL_DOMAIN, SKU_ACCOMMODATION_DESCRIPTION)
